@@ -1,14 +1,17 @@
 import "./App.css";
-
-function createSession() {
-  alert("createSession");
-}
-
-function joinSession() {
-  alert("joinSession");
-}
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  let navigate = useNavigate();
+
+  function joinSession() {
+    navigate("/joinSession");
+  }
+
+  function createSession() {
+    alert("createSession");
+  }
+
   return (
     <div>
       <button onClick={createSession}>Create Session</button>
