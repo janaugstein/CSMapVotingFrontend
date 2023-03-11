@@ -5,7 +5,6 @@ import axios from "axios";
 function JoinSession() {
   const nameRef = useRef();
   const sessionIDRef = useRef();
-  //const axios = require("axios");
 
   function join() {
     axios
@@ -23,16 +22,6 @@ function JoinSession() {
       name: nameRef.current.value,
       sessionID: sessionIDRef.current.value,
     });
-    /*axios({
-      method: "post",
-      url: "http://localhost:8001/joinSession",
-      data: {
-        name: nameRef.current.value,
-        sessionID: sessionIDRef.current.value,
-      },
-    }).then(function (response) {
-      console.log(response);
-    });*/
   }
   return (
     <div>
