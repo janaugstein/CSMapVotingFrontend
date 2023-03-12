@@ -6,23 +6,21 @@ function VotingSite() {
   const [cookies] = useCookies(["joined"]);
   const [data, setData] = useState([]);
 
-  /*async function getData() {
+  function sendVote(event) {
     axios
-      .post("http://localhost:8001/joinSession", {
+      .post("http://localhost:8001/vote", {
+        voted: event.target.value,
         name: cookies.joined.name,
-        sessionID: cookies.joined.sessionID,
       })
       .then(function (response) {
-        //console.log(response.data.data);
-        return response.data.data;
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }*/
+  }
 
   useEffect(() => {
-    //console.log(cookies.joined.name);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -46,10 +44,10 @@ function VotingSite() {
 
   return (
     data[0] && (
-      <div>
-        <p>{data[0].map1}</p>
-        <p>{data[0].map2}</p>
-        <p>{data[0].map3}</p>
+      <div onChange={sendVote}>
+        <input type="radio" value={data[0].map1} name="map" /> {data[0].map1}
+        <input type="radio" value={data[0].map2} name="map" /> {data[0].map2}
+        <input type="radio" value={data[0].map3} name="map" /> {data[0].map3}
       </div>
     )
   );
