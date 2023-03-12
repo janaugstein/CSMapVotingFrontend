@@ -1,6 +1,7 @@
 import TextField from "@mui/material/TextField";
 import { useRef } from "react";
 import axios from "axios";
+import "./JoinSession.css";
 
 function JoinSession() {
   const nameRef = useRef();
@@ -24,7 +25,7 @@ function JoinSession() {
     });
   }
   return (
-    <div>
+    <div className="joinSession">
       <TextField
         required
         id="name"

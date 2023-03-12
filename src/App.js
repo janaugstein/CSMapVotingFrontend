@@ -9,11 +9,11 @@ function App() {
   }
 
   function createSession() {
-    alert("createSession");
+    navigate("/createSession");
   }
 
   return (
-    <div>
+    <div className="homepage">
       <button onClick={createSession}>Create Session</button>
       <button onClick={joinSession}>Join Session</button>
     </div>
