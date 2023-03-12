@@ -11,6 +11,7 @@ function VotingSite() {
       .post("http://localhost:8001/vote", {
         voted: event.target.value,
         name: cookies.joined.name,
+        sessionID: cookies.joined.sessionID,
       })
       .then(function (response) {
         console.log(response);
@@ -45,9 +46,9 @@ function VotingSite() {
   return (
     data[0] && (
       <div onChange={sendVote}>
-        <input type="radio" value={data[0].map1} name="map" /> {data[0].map1}
-        <input type="radio" value={data[0].map2} name="map" /> {data[0].map2}
-        <input type="radio" value={data[0].map3} name="map" /> {data[0].map3}
+        <input type="radio" value={data[0]} name="map" /> {data[0]}
+        <input type="radio" value={data[1]} name="map" /> {data[1]}
+        <input type="radio" value={data[2]} name="map" /> {data[2]}
       </div>
     )
   );
