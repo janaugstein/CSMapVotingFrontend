@@ -1,11 +1,17 @@
 import "./App.css";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 function App() {
   let navigate = useNavigate();
+  const [cookies] = useCookies(["joined"]);
 
   function joinSession() {
-    navigate("/joinSession");
+    if (cookies.joined) {
+      navigate("/voting");
+    } else {
+      navigate("/joinSession");
+    }
   }
 
   function createSession() {
