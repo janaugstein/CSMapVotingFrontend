@@ -3,20 +3,25 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
 
 import App from "./App";
 import JoinSession from "./components/JoinSession";
 import CreateSession from "./components/CreateSession";
+import VotingSite from "./components/VotingSite";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}></Route>
-      <Route path="/joinSession" element={<JoinSession />}></Route>
-      <Route path="/createSession" element={<CreateSession />}></Route>
-    </Routes>
-  </BrowserRouter>
+  <CookiesProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}></Route>
+        <Route path="/joinSession" element={<JoinSession />}></Route>
+        <Route path="/createSession" element={<CreateSession />}></Route>
+        <Route path="/voting" element={<VotingSite />}></Route>
+      </Routes>
+    </BrowserRouter>
+  </CookiesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
