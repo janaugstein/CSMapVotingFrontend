@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function VotingSite() {
   const [cookies] = useCookies(["joined"]);
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   function sendVote(event) {
     axios
@@ -14,6 +16,7 @@ function VotingSite() {
         sessionID: cookies.joined.sessionID,
       })
       .then(function (response) {
+        navigate("/votes");
         console.log(response);
       })
       .catch(function (error) {

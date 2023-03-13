@@ -1,0 +1,32 @@
+.votesContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.votesBox {
+  margin: 50px;
+}
+
+.mapVotes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.map {
+  width: 100px;
+  border-style: groove;
+  border-radius: 15px;
+  padding: 10px;
+  margin-right: 25px;
+}
+
+.votes {
+  padding: 10px;
+  border-style: groove;
+  border-radius: 15px;
+}
