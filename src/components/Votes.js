@@ -1,29 +1,36 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 import "./Votes.css";
 function Votes() {
   const [cookies] = useCookies(["joined"]);
   const [data, setData] = useState([]);
-
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      sessionID: cookies.joined.sessionID,
-    }),
-  };
+  const navigate = useNavigate();
 
   async function fetchData() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionID: cookies.joined.sessionID,
+      }),
+    };
     const response = await fetch(
       "http://localhost:8001/getVotesFromSession",
       requestOptions
     );
 
     const res = await response.json();
+    console.log(res);
     setData(res);
   }
 
   useEffect(() => {
+    if (cookies.joined === undefined) {
+      navigate("/");
+      alert("No credentials were found, you need to join again");
+      return;
+    }
     fetchData();
   }, []);
 

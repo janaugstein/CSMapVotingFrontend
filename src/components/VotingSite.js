@@ -26,6 +26,11 @@ function VotingSite() {
   }
 
   useEffect(() => {
+    if (cookies.joined === undefined) {
+      navigate("/");
+      alert("No credentials were found, you need to join again");
+      return;
+    }
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
