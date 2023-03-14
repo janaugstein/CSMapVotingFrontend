@@ -42,7 +42,6 @@ function VotingSite() {
       );
       const res = await response.json();
       setData(res.data);
-      console.log(res.data);
     }
     fetchData();
   }, []);

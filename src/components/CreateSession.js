@@ -19,7 +19,6 @@ function CreateSession() {
       map2Ref.current.value,
       map3Ref.current.value,
     ];
-    console.log(maps);
     axios
       .post("http://localhost:8001/createSession", {
         maps: maps,
@@ -29,7 +28,6 @@ function CreateSession() {
         let d = new Date();
         //expiration after 30 minutes
         d.setTime(d.getTime() + 30 * 60 * 1000);
-        console.log(response.data.sessionID);
         setCookie(
           "joined",
           { name: nameRef.current.value, sessionID: response.data.sessionID },

@@ -24,29 +24,8 @@ function JoinSession() {
   }
 
   function join() {
-    /*axios
-      .post("http://localhost:8001/joinSession", {
-        name: nameRef.current.value,
-        sessionID: sessionIDRef.current.value,
-      })
-      .then(function (response) {
-        //setMyCookie();
-        console.log(response);
-        navigate("/voting");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    console.log({
-      name: nameRef.current.value,
-      sessionID: sessionIDRef.current.value,
-    });*/
     setMyCookie();
     navigate("/voting");
-    console.log({
-      name: nameRef.current.value,
-      sessionID: sessionIDRef.current.value,
-    });
   }
   return (
     <div className="joinSession">
