@@ -37,6 +37,7 @@ function Votes() {
   return (
     data[0] && (
       <div className="votesContainer">
+        <div>SessionID: {cookies.joined.sessionID}</div>
         <div className="votesBox">
           <div className="mapVotes">
             <p className="map">{data[0].name}</p>
