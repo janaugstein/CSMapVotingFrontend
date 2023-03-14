@@ -12,3 +12,12 @@
   border-radius: 25px;
   background-color: cadetblue;
 }
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: aliceblue !important;
+  color: aliceblue !important;
+}
+
+.textfield {
+  color: aliceblue !important;
+}

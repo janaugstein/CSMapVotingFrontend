@@ -56,6 +56,8 @@ function JoinSession() {
         label="Name"
         margin="normal"
         inputRef={nameRef}
+        InputLabelProps={{ className: "textfield" }}
+        inputProps={{ className: "textfield" }}
       />
       <TextField
         required
@@ -63,6 +65,8 @@ function JoinSession() {
         label="sessionID"
         margin="normal"
         inputRef={sessionIDRef}
+        InputLabelProps={{ className: "textfield" }}
+        inputProps={{ className: "textfield" }}
       />
       <button onClick={join}>Join Session</button>
     </div>

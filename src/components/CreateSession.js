@@ -50,6 +50,8 @@ function CreateSession() {
         label="Name"
         margin="normal"
         inputRef={nameRef}
+        InputLabelProps={{ className: "textfield" }}
+        inputProps={{ className: "textfield" }}
       />
       <TextField
         required
@@ -57,6 +59,8 @@ function CreateSession() {
         label="map1"
         margin="normal"
         inputRef={map1Ref}
+        InputLabelProps={{ className: "textfield" }}
+        inputProps={{ className: "textfield" }}
       />
       <TextField
         required
@@ -64,6 +68,8 @@ function CreateSession() {
         label="map2"
         margin="normal"
         inputRef={map2Ref}
+        InputLabelProps={{ className: "textfield" }}
+        inputProps={{ className: "textfield" }}
       />
       <TextField
         required
@@ -71,6 +77,8 @@ function CreateSession() {
         label="map2"
         margin="normal"
         inputRef={map3Ref}
+        InputLabelProps={{ className: "textfield" }}
+        inputProps={{ className: "textfield" }}
       />
       <button onClick={create}>Create Session</button>
     </div>
