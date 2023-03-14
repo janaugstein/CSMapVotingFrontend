@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./VotingSite.css";
 
 function VotingSite() {
   const [cookies] = useCookies(["joined"]);
@@ -48,10 +49,35 @@ function VotingSite() {
 
   return (
     data[0] && (
-      <div onChange={sendVote}>
-        <input type="radio" value={data[0]} name="map" /> {data[0]}
-        <input type="radio" value={data[1]} name="map" /> {data[1]}
-        <input type="radio" value={data[2]} name="map" /> {data[2]}
+      <div className="toVoteFor" onChange={sendVote}>
+        <div className="voteContainer">
+          <p className="voteName">{data[0]}</p>
+          <input
+            className="possibleVote"
+            type="radio"
+            value={data[0]}
+            name="map"
+          />
+        </div>
+        <div className="voteContainer">
+          <p className="voteName">{data[1]}</p>
+          <input
+            className="possibleVote"
+            type="radio"
+            value={data[1]}
+            name="map"
+          />
+        </div>
+
+        <div className="voteContainer">
+          <p className="voteName">{data[2]}</p>
+          <input
+            className="possibleVote"
+            type="radio"
+            value={data[2]}
+            name="map"
+          />
+        </div>
       </div>
     )
   );

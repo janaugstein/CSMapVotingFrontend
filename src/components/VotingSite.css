@@ -1,0 +1,47 @@
+.toVoteFor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.voteContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.possibleVote {
+  height: 20px;
+  width: 20px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  /* For a circular appearance we need a border-radius. */
+  border-radius: 50%;
+
+  /* The background will be the radio dot's color. */
+  background: cadetblue;
+
+  /* The border will be the spacing between the dot and the outer circle */
+  border: 3px solid #fff;
+
+  /* And by creating a box-shadow with no offset and no blur, we have an outer circle */
+  box-shadow: 0 0 0 1px cadetblue;
+}
+
+.voteName {
+  width: 100px;
+  height: 30px;
+  border-style: groove;
+  border-radius: 15px;
+  border-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
