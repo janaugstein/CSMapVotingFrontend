@@ -16,7 +16,7 @@ function Votes() {
       }),
     };
     const response = await fetch(
-      "kleinerfeigling.org:60800/getVotesFromSession",
+      "http://kleinerfeigling.org:60800/getVotesFromSession",
       requestOptions
     );
 

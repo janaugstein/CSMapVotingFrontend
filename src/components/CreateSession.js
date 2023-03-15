@@ -20,7 +20,7 @@ function CreateSession() {
       map3Ref.current.value,
     ];
     axios
-      .post("kleinerfeigling.org:60800/createSession", {
+      .post("http://kleinerfeigling.org:60800/createSession", {
         maps: maps,
         name: nameRef.current.value,
       })
