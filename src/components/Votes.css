@@ -1,5 +1,6 @@
 .votesContainer {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,4 +39,52 @@
   min-height: 5%;
   border-radius: 25px;
   background-color: cadetblue;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.sessionOwner {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.participantList {
+  width: 50%;
+  border-style: groove;
+  border-radius: 15px;
+  border-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.participantList p {
+  width: 100%;
+  text-align: left;
+}
+
+.whoVotesList {
+  width: 50%;
+  border-style: groove;
+  border-radius: 15px;
+  border-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.whoVotesList p {
+  width: 100%;
+  text-align: left;
 }

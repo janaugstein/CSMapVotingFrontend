@@ -35,24 +35,43 @@ function Votes() {
   }, []);
 
   return (
-    data[0] && (
-      <div className="votesContainer">
-        <div>SessionID: {cookies.joined.sessionID}</div>
-        <div className="votesBox">
-          <div className="mapVotes">
-            <p className="map">{data[0].name}</p>
-            <p className="votes">{data[0].votes}</p>
+    data.maps && (
+      <div className="container">
+        <div className="votesContainer">
+          <div>SessionID: {cookies.joined.sessionID}</div>
+          <div className="votesBox">
+            <div className="mapVotes">
+              <p className="map">{data.maps[0].name}</p>
+              <p className="votes">{data.maps[0].votes}</p>
+            </div>
+            <div className="mapVotes">
+              <p className="map">{data.maps[1].name}</p>
+              <p className="votes">{data.maps[1].votes}</p>
+            </div>
+            <div className="mapVotes">
+              <p className="map">{data.maps[2].name}</p>
+              <p className="votes">{data.maps[2].votes}</p>
+            </div>
           </div>
-          <div className="mapVotes">
-            <p className="map">{data[1].name}</p>
-            <p className="votes">{data[1].votes}</p>
-          </div>
-          <div className="mapVotes">
-            <p className="map">{data[2].name}</p>
-            <p className="votes">{data[2].votes}</p>
-          </div>
+          <button onClick={fetchData}>Refresh</button>
         </div>
-        <button onClick={fetchData}>Refresh</button>
+        {data.sessionOwner === cookies.joined.name && (
+          <div className="sessionOwner">
+            <div className="participantList">
+              <p>List of Participants</p>
+              {data.participants.map((particinpant) => (
+                <li>{particinpant}</li>
+              ))}
+            </div>
+
+            <div className="whoVotesList">
+              <p>List of user who voted</p>
+              {data.whoVoted.map((whoVoted) => (
+                <li>{whoVoted}</li>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     )
   );
