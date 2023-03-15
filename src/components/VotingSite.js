@@ -18,7 +18,7 @@ function VotingSite() {
       })
       .then(function (response) {
         navigate("/votes");
-        console.log(response);
+        //console.log(response);
       })
       .catch(function (error) {
         console.log(error);
