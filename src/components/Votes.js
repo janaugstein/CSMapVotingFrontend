@@ -57,18 +57,21 @@ function Votes() {
         </div>
         {data.sessionOwner === cookies.joined.name && (
           <div className="sessionOwner">
-            <div className="participantList">
-              <p>List of Participants</p>
-              {data.participants.map((particinpant) => (
-                <li>{particinpant}</li>
-              ))}
+            <div className="left">
+              <div className="participantList">
+                <p>List of Participants</p>
+                {data.participants.map((particinpant) => (
+                  <li>{particinpant}</li>
+                ))}
+              </div>
             </div>
-
-            <div className="whoVotesList">
-              <p>List of user who voted</p>
-              {data.whoVoted.map((whoVoted) => (
-                <li>{whoVoted}</li>
-              ))}
+            <div className="left">
+              <div className="whoVotesList">
+                <p>List of user who voted</p>
+                {data.whoVoted.map((whoVoted) => (
+                  <li>{whoVoted}</li>
+                ))}
+              </div>
             </div>
           </div>
         )}
