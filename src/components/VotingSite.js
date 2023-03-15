@@ -11,7 +11,7 @@ function VotingSite() {
 
   function sendVote(event) {
     axios
-      .post("http://localhost:8001/vote", {
+      .post("kleinerfeigling.org:60800/vote", {
         voted: event.target.value,
         name: cookies.joined.name,
         sessionID: cookies.joined.sessionID,
@@ -42,7 +42,7 @@ function VotingSite() {
 
     async function fetchData() {
       const response = await fetch(
-        "http://localhost:8001/joinSession",
+        "kleinerfeigling.org:60800/joinSession",
         requestOptions
       );
       const res = await response.json();
