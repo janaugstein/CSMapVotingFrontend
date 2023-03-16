@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import "./Votes.css";
 function Votes() {
+  const url = process.env.REACT_APP_API_URL;
   const [cookies] = useCookies(["joined"]);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
@@ -15,10 +16,7 @@ function Votes() {
         sessionID: cookies.joined.sessionID,
       }),
     };
-    const response = await fetch(
-      "http://kleinerfeigling.org:60800/getVotesFromSession",
-      requestOptions
-    );
+    const response = await fetch(url + "/getVotesFromSession", requestOptions);
 
     const res = await response.json();
     //console.log(res);

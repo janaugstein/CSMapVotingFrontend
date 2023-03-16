@@ -6,6 +6,8 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
 function CreateSession() {
+  var url = process.env.REACT_APP_API_URL;
+  console.log(url + "/createSession");
   const nameRef = useRef();
   const map1Ref = useRef();
   const map2Ref = useRef();
@@ -20,7 +22,7 @@ function CreateSession() {
       map3Ref.current.value,
     ];
     axios
-      .post("http://kleinerfeigling.org:60800/createSession", {
+      .post(url + "/createSession", {
         maps: maps,
         name: nameRef.current.value,
       })

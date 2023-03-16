@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import "./VotingSite.css";
 
 function VotingSite() {
+  const url = process.env.REACT_APP_API_URL;
   const [cookies] = useCookies(["joined"]);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
   function sendVote(event) {
     axios
-      .post("http://kleinerfeigling.org:60800/vote", {
+      .post(url + "/vote", {
         voted: event.target.value,
         name: cookies.joined.name,
         sessionID: cookies.joined.sessionID,
@@ -41,10 +42,7 @@ function VotingSite() {
     };
 
     async function fetchData() {
-      const response = await fetch(
-        "http://kleinerfeigling.org:60800/joinSession",
-        requestOptions
-      );
+      const response = await fetch(url + "/joinSession", requestOptions);
       const res = await response.json();
       setData(res.data);
     }
