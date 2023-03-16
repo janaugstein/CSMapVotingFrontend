@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 function CreateSession() {
   var url = process.env.REACT_APP_API_URL;
-  console.log(url + "/createSession");
   const nameRef = useRef();
   const map1Ref = useRef();
   const map2Ref = useRef();
