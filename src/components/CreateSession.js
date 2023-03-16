@@ -39,7 +39,7 @@ function CreateSession() {
         setCookie(
           "joined",
           { name: nameRef.current.value, sessionID: response.data.sessionID },
-          { path: "/", expires: d, sameSite: "none" }
+          { path: "/", expires: d }
         );
         navigate("/voting");
       })

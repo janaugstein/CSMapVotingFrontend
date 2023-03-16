@@ -19,7 +19,7 @@ function JoinSession() {
     setCookie(
       "joined",
       { name: nameRef.current.value, sessionID: sessionIDRef.current.value },
-      { path: "/", expires: d, sameSite: "none" }
+      { path: "/", expires: d }
     );
   }
 
