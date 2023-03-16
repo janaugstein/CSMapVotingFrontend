@@ -20,7 +20,6 @@ function CreateSession() {
       map2Ref.current.value,
       map3Ref.current.value,
     ];
-    console.log(maps);
     //check if one map is empty0
     for (var i = 0; i < maps.length; i++) {
       if (maps[i] === "") {
