@@ -1,4 +1,5 @@
 import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 import { useRef } from "react";
 import axios from "axios";
 import "./CreateSession.css";
@@ -13,13 +14,24 @@ function CreateSession() {
   const map3Ref = useRef();
   const [cookies, setCookie] = useCookies(["joined"]);
   const navigate = useNavigate();
+  const mapOptions = ["Inferno", "Cache", "Anubis", "Ancient"];
 
   function create() {
-    let maps = [
+    let mapsFromSelection = [
       map1Ref.current.value,
       map2Ref.current.value,
       map3Ref.current.value,
     ];
+    let maps = [];
+    for (var i = 0; i < mapsFromSelection.length; i++) {
+      if (!maps.includes(mapsFromSelection[i])) {
+        maps.push(mapsFromSelection[i]);
+      } else {
+        alert("You cant select Maps twice! Please change one of the Maps.");
+        return;
+      }
+    }
+
     //check if one map is empty0
     for (var i = 0; i < maps.length; i++) {
       if (maps[i] === "") {
@@ -48,6 +60,8 @@ function CreateSession() {
       });
   }
 
+  console.log(mapOptions);
+
   return (
     <div className="createSession">
       <TextField
@@ -59,32 +73,56 @@ function CreateSession() {
         InputLabelProps={{ className: "textfield" }}
         inputProps={{ className: "textfield" }}
       />
-      <TextField
-        required
-        id="map1"
-        label="map1"
-        margin="normal"
-        inputRef={map1Ref}
-        InputLabelProps={{ className: "textfield" }}
-        inputProps={{ className: "textfield" }}
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={mapOptions}
+        sx={{ width: 300 }}
+        classes={{ inputRoot: "textfield" }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Map"
+            margin="normal"
+            inputRef={map1Ref}
+            InputLabelProps={{ className: "textfield" }}
+            //InputProps={{ className: "textfield" }}
+          />
+        )}
       />
-      <TextField
-        required
-        id="map2"
-        label="map2"
-        margin="normal"
-        inputRef={map2Ref}
-        InputLabelProps={{ className: "textfield" }}
-        inputProps={{ className: "textfield" }}
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={mapOptions}
+        sx={{ width: 300 }}
+        classes={{ inputRoot: "textfield" }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Map"
+            margin="normal"
+            inputRef={map2Ref}
+            InputLabelProps={{ className: "textfield" }}
+            //InputProps={{ className: "textfield" }}
+          />
+        )}
       />
-      <TextField
-        required
-        id="map2"
-        label="map2"
-        margin="normal"
-        inputRef={map3Ref}
-        InputLabelProps={{ className: "textfield" }}
-        inputProps={{ className: "textfield" }}
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={mapOptions}
+        sx={{ width: 300 }}
+        classes={{ inputRoot: "textfield" }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Map"
+            margin="normal"
+            inputRef={map3Ref}
+            InputLabelProps={{ className: "textfield" }}
+            //InputProps={{ className: "textfield" }}
+          />
+        )}
       />
       <button onClick={create}>Create Session</button>
     </div>
