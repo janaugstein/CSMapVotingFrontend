@@ -7,11 +7,12 @@ function App() {
   const [cookies] = useCookies(["joined"]);
 
   function joinSession() {
-    if (cookies.joined) {
+    /*if (cookies.joined) {
       navigate("/voting");
     } else {
       navigate("/joinSession");
-    }
+    }*/
+    navigate("/joinSession");
   }
 
   function createSession() {
