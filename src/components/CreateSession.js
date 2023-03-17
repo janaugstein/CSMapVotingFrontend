@@ -14,7 +14,21 @@ function CreateSession() {
   const map3Ref = useRef();
   const [cookies, setCookie] = useCookies(["joined"]);
   const navigate = useNavigate();
-  const mapOptions = ["Inferno", "Cache", "Anubis", "Ancient"];
+  const mapOptions = [
+    "Ancient",
+    "Anubis",
+    "Inferno",
+    "Mirage",
+    "Nuke",
+    "Overpass",
+    "Vertigo",
+    "Tuscan",
+    "Dust 2",
+    "Train",
+    "Cache",
+    "Agency",
+    "Office",
+  ];
 
   function create() {
     let mapsFromSelection = [
