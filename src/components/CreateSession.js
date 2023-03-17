@@ -47,7 +47,7 @@ function CreateSession() {
       .then(function (response) {
         let d = new Date();
         //expiration after 30 minutes
-        d.setTime(d.getTime() + 30 * 60 * 1000);
+        d.setTime(d.getTime() + 5 * 60 * 1000);
         setCookie(
           "joined",
           { name: nameRef.current.value, sessionID: response.data.sessionID },
