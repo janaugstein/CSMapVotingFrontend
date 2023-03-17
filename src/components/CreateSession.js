@@ -60,8 +60,6 @@ function CreateSession() {
       });
   }
 
-  console.log(mapOptions);
-
   return (
     <div className="createSession">
       <TextField
