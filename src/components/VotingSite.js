@@ -43,8 +43,14 @@ function VotingSite() {
 
     async function fetchData() {
       const response = await fetch(url + "/joinSession", requestOptions);
-      const res = await response.json();
-      setData(res.data);
+      if (response.status === 404) {
+        const res = await response.json();
+        alert(res.message);
+        navigate("/joinSession");
+      } else {
+        const res = await response.json();
+        setData(res.data);
+      }
     }
     fetchData();
   }, []);

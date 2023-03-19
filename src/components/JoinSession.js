@@ -57,7 +57,7 @@ function JoinSession() {
         InputLabelProps={{ className: "textfield" }}
         inputProps={{ className: "textfield" }}
       />
-      <button onClick={join}>Join Session</button>
+      <button onClick={join}>Join</button>
     </div>
   );
 }
