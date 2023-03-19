@@ -10,3 +10,12 @@
   font-style: oblique;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+
+.header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c0f12;
+  text-decoration: none;
+  height: 50px;
+}

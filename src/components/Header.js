@@ -1,9 +1,10 @@
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div className="header">
-      <p>CS GO Map Voting Tool</p>
+      <a href={"/"}>CS GO Map Voting Tool</a>
     </div>
   );
 }
