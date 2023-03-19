@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./JoinSession.css";
 
 function JoinSession() {
+  var url = process.env.REACT_APP_API_URL;
   const nameRef = useRef();
   const sessionIDRef = useRef();
   const [cookies, setCookie] = useCookies(["cs_map_voting"]);
@@ -25,16 +26,51 @@ function JoinSession() {
     );
   }
 
-  function join() {
-    if (cookies.cs_map_voting === undefined) {
-      setMyCookie();
-      navigate("/voting");
-    } else if (cookies.cs_map_voting.sessionID === sessionIDRef.current.value) {
-      alert("You already joined this Session");
-      navigate("/votes");
+  function checkInputs() {
+    if (nameRef.current.value === "" || sessionIDRef.current.value === "") {
+      alert("Please enter both a name and a sessionID");
+      return false;
     } else {
-      setMyCookie();
-      navigate("/voting");
+      return true;
+    }
+  }
+
+  async function checkName() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionID: sessionIDRef.current.value,
+      }),
+    };
+
+    const response = await fetch(url + "/getParticipants", requestOptions);
+    const res = await response.json();
+    if (res.participants.includes(nameRef.current.value)) {
+      alert(
+        `User with the name ${nameRef.current.value} already participated. Please use another name`
+      );
+      return false;
+    } else {
+      console.log("Name does not exist");
+      return true;
+    }
+  }
+
+  async function join() {
+    if (checkInputs() && (await checkName())) {
+      if (cookies.cs_map_voting === undefined) {
+        setMyCookie();
+        navigate("/voting");
+      } else if (
+        cookies.cs_map_voting.sessionID === sessionIDRef.current.value
+      ) {
+        alert("You already joined this Session");
+        navigate("/votes");
+      } else {
+        setMyCookie();
+        navigate("/voting");
+      }
     }
   }
   return (
