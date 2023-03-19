@@ -1,6 +1,8 @@
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   let navigate = useNavigate();
@@ -21,8 +23,10 @@ function App() {
 
   return (
     <div className="homepage">
+      {/*<Header />*/}
       <button onClick={createSession}>Create Session</button>
       <button onClick={joinSession}>Join Session</button>
+      {/*<Footer />*/}
     </div>
   );
 }

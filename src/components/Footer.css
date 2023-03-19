@@ -1,0 +1,10 @@
+.footer {
+  position: fixed;
+  bottom: 0%;
+  /*background-color: #de9b35;*/
+  background: linear-gradient(110deg, #de9b35 80%, #ccba7c 80%);
+  color: #0c0f12;
+  width: 100%;
+  font-style: oblique;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}

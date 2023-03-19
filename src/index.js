@@ -10,11 +10,14 @@ import JoinSession from "./components/JoinSession";
 import CreateSession from "./components/CreateSession";
 import VotingSite from "./components/VotingSite";
 import Votes from "./components/Votes";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <CookiesProvider>
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<App />}></Route>
         <Route path="/joinSession" element={<JoinSession />}></Route>
@@ -22,6 +25,7 @@ root.render(
         <Route path="/voting" element={<VotingSite />}></Route>
         <Route path="/votes" element={<Votes />}></Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   </CookiesProvider>
 );

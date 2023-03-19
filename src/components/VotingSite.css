@@ -26,13 +26,13 @@
   border-radius: 50%;
 
   /* The background will be the radio dot's color. */
-  background: cadetblue;
+  background: #de9b35;
 
   /* The border will be the spacing between the dot and the outer circle */
   border: 3px solid #282c34;
 
   /* And by creating a box-shadow with no offset and no blur, we have an outer circle */
-  box-shadow: 0 0 0 1px cadetblue;
+  box-shadow: 0 0 0 1px #de9b35;
 }
 
 .voteName {
@@ -40,7 +40,7 @@
   height: 30px;
   border-style: groove;
   border-radius: 15px;
-  border-color: cadetblue;
+  border-color: #de9b35;
   display: flex;
   justify-content: center;
   align-items: center;
