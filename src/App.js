@@ -6,10 +6,10 @@ import Footer from "./components/Footer";
 
 function App() {
   let navigate = useNavigate();
-  const [cookies] = useCookies(["joined"]);
+  const [cookies] = useCookies(["cs_map_voting"]);
 
   function joinSession() {
-    /*if (cookies.joined) {
+    /*if (cookies.cs_map_voting) {
       navigate("/voting");
     } else {
       navigate("/joinSession");

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Votes.css";
 function Votes() {
   const url = process.env.REACT_APP_API_URL;
-  const [cookies] = useCookies(["joined"]);
+  const [cookies] = useCookies(["cs_map_voting"]);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function Votes() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        sessionID: cookies.joined.sessionID,
+        sessionID: cookies.cs_map_voting.sessionID,
       }),
     };
     const response = await fetch(url + "/getVotesFromSession", requestOptions);
@@ -24,7 +24,7 @@ function Votes() {
   }
 
   useEffect(() => {
-    if (cookies.joined === undefined) {
+    if (cookies.cs_map_voting === undefined) {
       navigate("/");
       alert("No credentials were found, you need to join again");
       return;
@@ -36,7 +36,7 @@ function Votes() {
     data.maps && (
       <div className="container">
         <div className="votesContainer">
-          <div>SessionID: {cookies.joined.sessionID}</div>
+          <div>SessionID: {cookies.cs_map_voting.sessionID}</div>
           <div className="votesBox">
             <div className="mapVotes">
               <p className="map">{data.maps[0].name}</p>
@@ -53,7 +53,7 @@ function Votes() {
           </div>
           <button onClick={fetchData}>Refresh</button>
         </div>
-        {data.sessionOwner === cookies.joined.name && (
+        {data.sessionOwner === cookies.cs_map_voting.name && (
           <div className="sessionOwner">
             <div className="left">
               <div className="participantList">

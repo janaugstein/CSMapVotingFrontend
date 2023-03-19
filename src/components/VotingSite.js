@@ -6,7 +6,7 @@ import "./VotingSite.css";
 
 function VotingSite() {
   const url = process.env.REACT_APP_API_URL;
-  const [cookies] = useCookies(["joined"]);
+  const [cookies] = useCookies(["cs_map_voting"]);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
@@ -14,8 +14,8 @@ function VotingSite() {
     axios
       .post(url + "/vote", {
         voted: event.target.value,
-        name: cookies.joined.name,
-        sessionID: cookies.joined.sessionID,
+        name: cookies.cs_map_voting.name,
+        sessionID: cookies.cs_map_voting.sessionID,
       })
       .then(function (response) {
         navigate("/votes");
@@ -27,7 +27,7 @@ function VotingSite() {
   }
 
   useEffect(() => {
-    if (cookies.joined === undefined) {
+    if (cookies.cs_map_voting === undefined) {
       navigate("/");
       alert("No credentials were found, you need to join again");
       return;
@@ -36,8 +36,8 @@ function VotingSite() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: cookies.joined.name,
-        sessionID: cookies.joined.sessionID,
+        name: cookies.cs_map_voting.name,
+        sessionID: cookies.cs_map_voting.sessionID,
       }),
     };
 

@@ -8,7 +8,7 @@ import "./JoinSession.css";
 function JoinSession() {
   const nameRef = useRef();
   const sessionIDRef = useRef();
-  const [cookies, setCookie] = useCookies(["joined"]);
+  const [cookies, setCookie] = useCookies(["cs_map_voting"]);
   let navigate = useNavigate();
 
   function setMyCookie() {
@@ -17,7 +17,7 @@ function JoinSession() {
     d.setTime(d.getTime() + 5 * 60 * 1000);
 
     setCookie(
-      "joined",
+      "cs_map_voting",
       { name: nameRef.current.value, sessionID: sessionIDRef.current.value },
       { path: "/", expires: d }
     );

@@ -12,7 +12,7 @@ function CreateSession() {
   const map1Ref = useRef();
   const map2Ref = useRef();
   const map3Ref = useRef();
-  const [cookies, setCookie] = useCookies(["joined"]);
+  const [cookies, setCookie] = useCookies(["cs_map_voting"]);
   const navigate = useNavigate();
   const mapOptions = [
     "Ancient",
@@ -63,7 +63,7 @@ function CreateSession() {
         //expiration after 30 minutes
         d.setTime(d.getTime() + 5 * 60 * 1000);
         setCookie(
-          "joined",
+          "cs_map_voting",
           { name: nameRef.current.value, sessionID: response.data.sessionID },
           { path: "/", expires: d }
         );
