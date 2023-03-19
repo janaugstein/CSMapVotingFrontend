@@ -52,7 +52,6 @@ function JoinSession() {
       );
       return false;
     } else {
-      console.log("Name does not exist");
       return true;
     }
   }
