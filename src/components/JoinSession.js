@@ -12,6 +12,8 @@ function JoinSession() {
   let navigate = useNavigate();
 
   function setMyCookie() {
+    //first check if cookie with the given sessionID already exist
+
     let d = new Date();
     //expiration after 30 minutes
     d.setTime(d.getTime() + 5 * 60 * 1000);
@@ -24,8 +26,16 @@ function JoinSession() {
   }
 
   function join() {
-    setMyCookie();
-    navigate("/voting");
+    if (cookies.cs_map_voting === undefined) {
+      setMyCookie();
+      navigate("/voting");
+    } else if (cookies.cs_map_voting.sessionID === sessionIDRef.current.value) {
+      alert("You already joined this Session");
+      navigate("/votes");
+    } else {
+      setMyCookie();
+      navigate("/voting");
+    }
   }
   return (
     <div className="joinSession">
