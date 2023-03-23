@@ -5,6 +5,8 @@ import axios from "axios";
 import "./CreateSession.css";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Alert } from "@mui/material";
 
 function CreateSession() {
   var url = process.env.REACT_APP_API_URL;
@@ -13,6 +15,8 @@ function CreateSession() {
   const map2Ref = useRef();
   const map3Ref = useRef();
   const [cookies, setCookie] = useCookies(["cs_map_voting"]);
+  const [warning, setWarning] = useState(false);
+  const [warningText, setWarningText] = useState("");
   const navigate = useNavigate();
   const mapOptions = [
     "Ancient",
@@ -37,22 +41,33 @@ function CreateSession() {
       map3Ref.current.value,
     ];
     let maps = [];
+    //check if name is entered
+    if (nameRef.current.value === "") {
+      setWarning(true);
+      setWarningText("Please enter a name!");
+      return;
+    }
+    //check if one map is empty0
     for (var i = 0; i < mapsFromSelection.length; i++) {
-      if (!maps.includes(mapsFromSelection[i])) {
-        maps.push(mapsFromSelection[i]);
-      } else {
-        alert("You cant select Maps twice! Please change one of the Maps.");
+      if (mapsFromSelection[i] === "") {
+        setWarning(true);
+        setWarningText("Please fill in all 3 Maps!");
         return;
       }
     }
 
-    //check if one map is empty0
-    for (var i = 0; i < maps.length; i++) {
-      if (maps[i] === "") {
-        alert("Please fill in all 3 Maps");
+    for (var i = 0; i < mapsFromSelection.length; i++) {
+      if (!maps.includes(mapsFromSelection[i])) {
+        maps.push(mapsFromSelection[i]);
+      } else {
+        setWarning(true);
+        setWarningText(
+          "You cant select Maps twice! Please change one of the Maps."
+        );
         return;
       }
     }
+
     axios
       .post(url + "/createSession", {
         maps: maps,
@@ -76,6 +91,7 @@ function CreateSession() {
 
   return (
     <div className="createSession">
+      {warning && <Alert severity="warning">{warningText}</Alert>}
       <TextField
         required
         id="name"
