@@ -53,7 +53,6 @@ function JoinSession() {
 
     const response = await fetch(url + "/getParticipants", requestOptions);
     const res = await response.json();
-    console.log(response);
     //check if participants is empty
     if (response.status === 404) {
       setWarning(true);
